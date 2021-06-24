@@ -46,6 +46,7 @@ class I2t(MDApp):
     imgpath=''      
 
     def build(self):
+        self.icon='i2t.png'
         
         return Builder.load_file('main.kv')
        

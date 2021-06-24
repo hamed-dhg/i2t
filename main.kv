@@ -1,0 +1,120 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+
+
+Switchscreen:
+    Mainpage:
+        id:mainpage
+    Resultpage:
+        id:resultpage
+    
+
+    
+
+
+
+<Mainpage>:
+    name:'mainpage'
+    id: mainpage
+
+    
+
+    MDBoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+        
+
+        
+
+        MDToolbar:
+            title: "Home"
+
+        Image:
+            id:myimage
+            source:
+           
+
+    
+        MDLabel:
+            text:'First Screen'
+            halign:'center'
+            id: mytext2
+        
+        MDRaisedButton:
+            text:'open'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release:
+                app.file_manager_open()
+                
+                 
+                
+                
+
+        MDRaisedButton:
+            text:'convert'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release:
+                app.root.current='resultpage'
+                app.converti2ten()
+
+
+    
+
+
+
+
+<Resultpage>:
+    name:'resultpage'
+    id:resultpage
+    
+    
+
+    MDBoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: "Result"
+            left_action_items: [["keyboard-backspace", lambda x: app.back(),]]
+            right_action_items: [["content-copy", lambda x: Clipboard.copy(mytext.text)]]
+            id:toolbar
+
+        
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            
+
+            MDLabel:
+                text:'Second Screen'
+                halign:'center'
+                id:mytext
+                size_hint_y:None
+                
+
+            
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
